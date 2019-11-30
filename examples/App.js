@@ -1,9 +1,6 @@
 import React from 'react';
-import { Alert, Text, StyleSheet } from 'react-native';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import { Alert, Text, StyleSheet, StatusBar } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import SelectableCard from './compoenents/SelectableCard';
 import Header from './compoenents/Header';
 import MultiSelectSortableFlatlist from 'react-native-multiselect-sortable-flatlist';
@@ -18,12 +15,9 @@ export default class App extends React.PureComponent {
   }
 
   onItemPress(item) {
-    Alert.alert(
-      'Alert',
-      item + ' Pressed',
-      [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
-      { cancelable: true }
-    );
+    Alert.alert('Alert', item + ' Pressed', [{ text: 'OK', onPress: () => console.log('OK Pressed') }], {
+      cancelable: true,
+    });
   }
 
   onSelectionChanged(selectedItems) {
@@ -31,16 +25,13 @@ export default class App extends React.PureComponent {
   }
 
   onSort(newListDataArray) {
-    console.log('test');
     this.setState({ ListData: newListDataArray });
   }
 
   render() {
     return (
       <MultiSelectSortableFlatlist
-        ref={MultiSelectSortableFlatlist =>
-          (this.MultiSelectSortableFlatlist = MultiSelectSortableFlatlist)
-        }
+        ref={MultiSelectSortableFlatlist => (this.MultiSelectSortableFlatlist = MultiSelectSortableFlatlist)}
         contentContainerStyle={styles.ListContainer}
         ListHeaderComponentStyle={styles.HeaderStyle}
         ListHeaderComponent={
@@ -53,11 +44,10 @@ export default class App extends React.PureComponent {
         keyExtractor={(item, index) => item}
         onItemTap={({ item, index }) => this.onItemPress(item)}
         onItemSelected={({ selectedItems, item, index }) => this.onSelectionChanged(selectedItems)}
-        onItemDeselected={({ selectedItems, item, index }) =>
-          this.onSelectionChanged(selectedItems)
-        }
+        onItemDeselected={({ selectedItems, item, index }) => this.onSelectionChanged(selectedItems)}
         onSort={data => this.onSort(data)}
         renderItem={({ item, index, selected }) => (
+          //Note: To view selection changes, your component should take a prop that will render changes based on "selected" bool
           <SelectableCard Selected={selected}>
             <Text style={styles.CardText}>{item}</Text>
           </SelectableCard>
@@ -69,7 +59,7 @@ export default class App extends React.PureComponent {
 
 const styles = StyleSheet.create({
   ListContainer: {
-    paddingTop: hp(5),
+    paddingTop: StatusBar.currentHeight + hp(2),
   },
   CardText: {
     textAlign: 'center',

@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { View, StyleSheet } from 'react-native';
 
 export default class SelectableCard extends React.PureComponent {
