@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html>
+---
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>README</title>
-  <link rel="stylesheet" href="https://stackedit.io/style.css" />
-</head>
 
-<body class="stackedit">
-  <div class="stackedit__left">
-    <div class="stackedit__toc">
-      
-<ul>
-<li><a href="#react-native-multiselect-sortable-flatlist">React Native Multiselect Sortable FlatList</a>
-<ul>
-<li><a href="#getting-started">Getting started</a></li>
-</ul>
-</li>
-</ul>
+---
 
-    </div>
-  </div>
-  <div class="stackedit__right">
-    <div class="stackedit__html">
-      <h1 id="react-native-multiselect-sortable-flatlist">React Native Multiselect Sortable FlatList</h1>
+<h1 id="react-native-multiselect-sortable-flatlist">React Native Multiselect Sortable FlatList</h1>
 <p>React Native FlatList with the abality to sort and select the list items.</p>
 <img src="https://i.imgur.com/4DvHoXY.gif" width="350">
 <h2 id="getting-started">Getting started</h2>
@@ -242,8 +221,3 @@
 <li>Request merge</li>
 </ol>
 
-    </div>
-  </div>
-</body>
-
-</html>
