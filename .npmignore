@@ -16,3 +16,6 @@ examples
 
 # OSX
 .DS_Store
+
+# package
+*tgz

@@ -15,3 +15,6 @@ node_modules
 
 # OSX
 .DS_Store
+
+# package
+*tgz
