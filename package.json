@@ -9,6 +9,29 @@
     },
     "author": "Yoeven D Khemlani",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yoeven/react-native-multiselect-sortable-flatlist.git"
+    },
+    "keywords": [
+        "react-native",
+        "react-native-component",
+        "react",
+        "react native",
+        "mobile",
+        "ios",
+        "android",
+        "ui",
+        "multiselect-sortable-flatlist",
+        "multiselect",
+        "sortable",
+        "flatlist",
+        "draggable",
+        "sort",
+        "list",
+        "dynamic"
+    ],
+    "homepage": "https://github.com/yoeven/react-native-multiselect-sortable-flatlist",
     "eslintConfig": {
         "extends": "universe/native"
     },
