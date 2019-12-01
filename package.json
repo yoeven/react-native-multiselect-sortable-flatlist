@@ -1,7 +1,7 @@
 {
     "name": "react-native-multiselect-sortable-flatlist",
     "version": "1.0.0",
-    "description": "A React Native FlatList that is sortable with the ability to multiple select components",
+    "description": "A React Native FlatList that is sortable with the ability to select multiple components",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
