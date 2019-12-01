@@ -18,26 +18,42 @@ export default class MultiSelectSortableFlatlist extends React.Component {
     this.state = {
       selectedItems: [],
     };
+    this.CURRENTMOVE = null;
+  }
+
+  shouldComponentUpdate() {
+    if (this.CURRENTMOVE != null) {
+      this.CURRENTMOVE();
+      this.CURRENTMOVE = null;
+    }
+    return true;
   }
 
   AddSelectedIndex(item, index, move = null) {
-    if (!this.IsItemSelected(item) && this.props.selectable) {
-      var selectedItems = this.state.selectedItems;
+    const selected = this.IsItemSelected(item);
+    this.MoveItem(move, selected);
+    if (!selected && this.props.selectable) {
+      const selectedItems = this.state.selectedItems;
       selectedItems.push(item);
       this.setState({ selectedItems: selectedItems });
       this.props.onItemSelected({ selectedItems, item, index });
     }
-    if (this.props.sortable && move && this.props.data.length >= 2) move();
+  }
+
+  MoveItem(move, selected) {
+    if (this.props.sortable && move && this.props.data.length >= 2) {
+      selected ? move() : (this.CURRENTMOVE = move);
+    }
   }
 
   OnTap(item, index) {
-    var indexOfIndex = this.GetIndexofItem(item);
+    const indexOfIndex = this.GetIndexofItem(item);
+    const selectedItems = this.state.selectedItems;
     if (indexOfIndex > -1) {
-      var selectedItems = this.state.selectedItems;
       selectedItems.splice(indexOfIndex, 1);
       this.setState({ selectedItems: selectedItems });
       this.props.onItemDeselected({ selectedItems, item, index });
-    } else if (this.state.selectedItems.length > 0) {
+    } else if (selectedItems.length > 0) {
       this.AddSelectedIndex(item, index);
     } else {
       this.props.onItemTap({ item, index });
@@ -52,7 +68,7 @@ export default class MultiSelectSortableFlatlist extends React.Component {
   SelectAll() {
     if (!this.props.selectable) return;
     this.setState({ selectedItems: [...this.props.data] });
-    return this.props.data;
+    return [...this.props.data];
   }
 
   GetIndexofItem(item) {

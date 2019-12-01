@@ -15,7 +15,7 @@ export default class App extends React.PureComponent {
   }
 
   onItemPress(item) {
-    Alert.alert('Alert', item + ' Pressed', [{ text: 'OK', onPress: () => console.log('OK Pressed') }], {
+    Alert.alert('Alert', item + ' Pressed', [{ text: 'OK' }], {
       cancelable: true,
     });
   }
