@@ -16,9 +16,10 @@ or
 
     import MultiSelectSortableFlatlist from 'react-native-multiselect-sortable-flatlist';
 
-### Example
 
-#### Simple Example (Minimum needed for component to work)
+## Example
+
+### Simple Example (Minimum needed for component to work)
 ```js
 <MultiSelectSortableFlatlist
   data={this.state.ListData}
@@ -41,7 +42,7 @@ or
   )}
 />
 ```
-#### Advance Example
+### Advance Example
  ```js
 import React from 'react';
 import { Alert, Text, StyleSheet, StatusBar } from 'react-native';
@@ -115,9 +116,18 @@ const styles = StyleSheet.create({
 });
 ```
 
-### API
+### Mobile Usage
+ - Tap on your item to get onItemTap called.
+ - Press and hold on an item to start selecting phase.
+	 - After activating selecting phase, tap on any other item to select.
+	 - Tapping on a selected item will deselect that item.
+	 - Deselecting all items will stop selecting phase
+ - Press and hold on an item and drag to move it.
+	 - Drop the item anywhere to sort.
 
-#### Props
+## API
+
+### Props
 | Name | Description | Default | Type |
 |--|--|--|--|
 | data | Exaxtly like react-native [FlatList data prop](https://facebook.github.io/react-native/docs/flatlist#data). An array of data to pass your rendered components. | None **(Required)** | Array |
@@ -132,7 +142,7 @@ const styles = StyleSheet.create({
 | sortable | Enable or Disable list sorting ability. | true | Bool |
 | scrollPercent | Sets where scrolling begins. A value of `5` will scroll up if the finger is in the top 5% of the FlatList container and scroll down in the bottom 5%. | 5 | Number |
 
-#### Functions
+### Functions
 Use refs to call the functions on an instance of the component.
 
 | Name | Description | Returns |
@@ -140,31 +150,30 @@ Use refs to call the functions on an instance of the component.
 | SelectAll() | Selects all of the items in the list and returns an array. | Array |
 | DeselectAll() | Deselects all of the items in the list and returns an array. | Array |
 
-### Mobile Usage
- - Tap on your item to get onItemTap called.
- - Press and hold on an item to start selecting phase.
-	 - After activating selecting phase, tap on any other item to select.
-	 - Tapping on a selected item will deselect that item.
-	 - Deselecting all items will stop selecting phase
- - Press and hold on an item and drag to move it.
-	 - Drop the item anywhere to sort.
-
-### Running the example expo app
+## Running the example expo app
 
  1. `git clone https://github.com/react-native-community/react-native-datetimepicker.git`
  2. `cd react-native-multiselect-sortable-flatlist/examples`
  3. `npm install or yarn`
  4. `npm start or yarn start`
 
-### How to contribute
+## How to contribute
 Check out this [simple tutorial](https://github.com/firstcontributions/first-contributions)
 - Use prettier to format all code by running `yarn run format`.
 - Test code locally by using examples project with expo or your project before requesting for a pull request.
 
-### How to test locally
+## How to test locally
 
  1. After making changes to the project code, `cd` into the root of the project
  2. Run `npm pack` which will build a package file with an extension `.tgz`
  3. Now `cd` into your react-native project folder or the *examples* expo project folder and run `yarn add <filename>.tgz` or `npm install <filename>.tgz`
  4. Run your project and test it works
  5. If you are installing the package with the same version number, yarn and npm install the cached version instead, use `yarn cache clean` before adding the package into your project
+
+## TODO
+
+ - [ ] Expose functions for manual select and sort
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNzIzMDI4NzkzXX0=
+-->
