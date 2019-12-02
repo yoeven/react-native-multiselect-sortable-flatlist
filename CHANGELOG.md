@@ -1,7 +1,7 @@
 
 # CHANGELOG
 
-### 1.0.2
+### 1.0.3
 
  - Release of initial component
  - Added README documentation

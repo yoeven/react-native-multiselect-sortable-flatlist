@@ -152,7 +152,7 @@ Use refs to call the functions on an instance of the component.
 
 ## Running the example expo app
 
- 1. `git clone https://github.com/react-native-community/react-native-datetimepicker.git`
+ 1. `git clone https://github.com/yoeven/react-native-multiselect-sortable-flatlist.git`
  2. `cd react-native-multiselect-sortable-flatlist/examples`
  3. `npm install or yarn`
  4. `npm start or yarn start`
