@@ -10,7 +10,7 @@ React Native FlatList with the ability to sort and select the list items.
     npm install react-native-multiselect-sortable-flatlist --save
 or
 
-    yarn add @react-native-community/datetimepicker
+    yarn add react-native-multiselect-sortable-flatlist
     
 ### Usage
 
