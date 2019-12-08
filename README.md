@@ -1,6 +1,6 @@
-# React Native Multiselect Sortable FlatList
+﻿# React Native Multiselect Sortable FlatList
 
-React Native FlatList with the ability to sort and select the list items.
+> A React Native FlatList that is sortable with the ability to select multiple list items.
 
 <img src="https://i.imgur.com/4DvHoXY.gif" width="350" />
 
@@ -17,7 +17,7 @@ or
     import MultiSelectSortableFlatlist from 'react-native-multiselect-sortable-flatlist';
 
 
-## Example
+## Examples
 
 ### Simple Example (Minimum needed for component to work)
 ```js
@@ -116,7 +116,90 @@ const styles = StyleSheet.create({
 });
 ```
 
-### Mobile Usage
+### Manual Mode Example
+```js
+import React from 'react';
+import { Alert, View, Text, StyleSheet, StatusBar, TouchableWithoutFeedback } from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import SelectableCard from './compoenents/SelectableCard';
+import Header from './compoenents/Header';
+import MultiSelectSortableFlatlist from 'react-native-multiselect-sortable-flatlist';
+
+export default class App extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ListData: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+      ItemsSelected: [],
+    };
+  }
+
+  onItemPress(item) {
+    Alert.alert('Alert', item + ' Pressed', [{ text: 'OK' }], {
+      cancelable: true,
+    });
+  }
+
+  onSelectionChanged(selectedItems) {
+    this.setState({ ItemsSelected: selectedItems });
+  }
+
+  onSort(newListDataArray) {
+    this.setState({ ListData: newListDataArray });
+  }
+
+  render() {
+    return (
+      <MultiSelectSortableFlatlist
+        ref={MultiSelectSortableFlatlist => (this.MultiSelectSortableFlatlist = MultiSelectSortableFlatlist)}
+        contentContainerStyle={styles.ListContainer}
+        ListHeaderComponentStyle={styles.HeaderStyle}
+        ListHeaderComponent={
+          <Header
+            SelectAll={() => this.MultiSelectSortableFlatlist.SelectAll()}
+            DeselectAll={() => this.MultiSelectSortableFlatlist.DeselectAll()}
+          />
+        }
+        mode="manual"
+        data={this.state.ListData}
+        keyExtractor={(item, index) => item}
+        onItemSelected={({ selectedItems, item, index }) => this.onSelectionChanged(selectedItems)}
+        onItemDeselected={({ selectedItems, item, index }) => this.onSelectionChanged(selectedItems)}
+        onSort={data => this.onSort(data)}
+        renderItem={({ item, index, selected, drag, dragEnd, reverseSelection }) => (
+          //Create your Touchable component and control both selectability and sortability through exposed functions.
+          <TouchableWithoutFeedback
+            onPress={() => reverseSelection()}
+            onLongPress={() => drag()}
+            onPressOut={() => dragEnd()}>
+            <View>
+              <SelectableCard Selected={selected}>
+                <Text style={styles.CardText}>{item}</Text>
+              </SelectableCard>
+            </View>
+          </TouchableWithoutFeedback>
+        )}
+      />
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  ListContainer: {
+    paddingTop: StatusBar.currentHeight + hp(2),
+  },
+  CardText: {
+    textAlign: 'center',
+  },
+  HeaderStyle: {
+    paddingHorizontal: wp(4),
+  },
+});
+```
+
+## Mobile Usage 
+
+#### Auto Mode
  - Tap on your item to get onItemTap called.
  - Press and hold on an item to start selecting phase.
 	 - After activating selecting phase, tap on any other item to select.
@@ -124,6 +207,10 @@ const styles = StyleSheet.create({
 	 - Deselecting all items will stop selecting phase
  - Press and hold on an item and drag to move it.
 	 - Drop the item anywhere to sort.
+
+#### Manual Mode
+- All controls are managed by calling exposed functions for each item in the `renderItem` prop.
+	- Changing `mode` prop to `"manual"` will stop all Auto mode controls. 
 
 ## API
 
@@ -141,6 +228,19 @@ const styles = StyleSheet.create({
 | selectable | Enable or Disable all list items from being selected. | true | Bool |
 | sortable | Enable or Disable list sorting ability. | true | Bool |
 | scrollPercent | Sets where scrolling begins. A value of `5` will scroll up if the finger is in the top 5% of the FlatList container and scroll down in the bottom 5%. | 5 | Number |
+| mode | Setting the mode to `"manual"` gives you full control on both sortability and selectability by exposing methods per item though the `renderItem` prop. When set to manual, the renderItem prop will look like this: `renderItem={({ item: object, index: number, selected: bool, drag: function, dragEnd: function, reverseSelection: function })`. Manual mode will ignore `selectable`, `sortable` and `onItemTap` props. | "auto" | String |
+
+All [FlatList props](https://facebook.github.io/react-native/docs/flatlist#props) are available too as the underlying component is a FlatList
+
+#### renderItem Prop Variables
+| Name | Description | Type |
+|--|--|--|
+| item | The item from `data` being rendered. | Object |
+| index | The index corresponding to this item in the `data` array. | Number |
+| selected | If selection is active on the item. | Bool |
+| drag | Call this to start dragging processing on the current item. The item will follow the current finger till `dragEnd` is called. | Func |
+| dragEnd | Call this to end dragging and sort the list. | Func |
+| reverseSelection | Call to reverse the current selection of the item. If selected, item will become unselected and if unselected, item will become selected. | Func |
 
 ### Functions
 Use refs to call the functions on an instance of the component.
@@ -172,8 +272,6 @@ Check out this [simple tutorial](https://github.com/firstcontributions/first-con
 
 ## TODO
 
- - [ ] Expose functions for manual select and sort
+ - [x] Expose functions for manual select and sort 
+ - [ ] Create version 2.0.0 with [react-native-draggable-flatlist](https://github.com/computerjazz/react-native-draggable-flatlist) ^2.0.0 as sorting base for better perfomance.
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbNzIzMDI4NzkzXX0=
--->

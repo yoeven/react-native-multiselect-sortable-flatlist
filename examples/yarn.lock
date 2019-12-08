@@ -4181,9 +4181,9 @@ react-native-draggable-flatlist@^1.1.9:
   resolved "https://registry.yarnpkg.com/react-native-draggable-flatlist/-/react-native-draggable-flatlist-1.1.9.tgz#b8f58122f639841c83aa1d913b2e3e9f9507bfe5"
   integrity sha512-Hga/kEFc+Undx2Y1FzkozWHRWvRz7dJobl5Kg1+xmd9JABS8YIYZWKboSAPmiTHD3FrlVJGIw/mlK5JZP0rJfw==
 
-react-native-multiselect-sortable-flatlist@../react-native-multiselect-sortable-flatlist-1.0.0.tgz:
-  version "1.0.0"
-  resolved "../react-native-multiselect-sortable-flatlist-1.0.0.tgz#485d1f8440cbfb6e0cc58ea424d12dd4d4ecfcd1"
+react-native-multiselect-sortable-flatlist@../react-native-multiselect-sortable-flatlist-1.0.4.tgz:
+  version "1.0.4"
+  resolved "../react-native-multiselect-sortable-flatlist-1.0.4.tgz#5a38904d68ef52ed377f519dd8bc0222a48ae10a"
   dependencies:
     react-native-draggable-flatlist "^1.1.9"
 
