@@ -238,9 +238,9 @@ All [FlatList props](https://facebook.github.io/react-native/docs/flatlist#props
 | item | The item from `data` being rendered. | Object |
 | index | The index corresponding to this item in the `data` array. | Number |
 | selected | If selection is active on the item. | Bool |
-| drag | Call this to start dragging processing on the current item. The item will follow the current finger till `dragEnd` is called. | Func |
+| drag | Call this to start dragging the process on the current item. The item will follow the finger till `dragEnd` is called. | Func |
 | dragEnd | Call this to end dragging and sort the list. | Func |
-| reverseSelection | Call to reverse the current selection of the item. If selected, item will become unselected and if unselected, item will become selected. | Func |
+| reverseSelection | Call this to reverse the current selection of the item. If selected, item will become unselected and if unselected, item will become selected. | Func |
 
 ### Functions
 Use refs to call the functions on an instance of the component.
