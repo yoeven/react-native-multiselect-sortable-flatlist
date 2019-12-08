@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
 
 ## Mobile Usage 
 
-#### Auto Mode
+### Auto Mode
  - Tap on your item to get onItemTap called.
  - Press and hold on an item to start selecting phase.
 	 - After activating selecting phase, tap on any other item to select.
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
  - Press and hold on an item and drag to move it.
 	 - Drop the item anywhere to sort.
 
-#### Manual Mode
+### Manual Mode
 - All controls are managed by calling exposed functions for each item in the `renderItem` prop.
 	- Changing `mode` prop to `"manual"` will stop all Auto mode controls. 
 
