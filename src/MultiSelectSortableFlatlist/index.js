@@ -12,12 +12,13 @@ export default class MultiSelectSortableFlatlist extends React.Component {
     sortable: true,
     selectable: true,
     mode: 'auto',
+    initialSelectedItems: [],
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      selectedItems: [],
+      selectedItems: [...this.props.initialSelectedItems],
     };
     this.CURRENTMOVE = null;
   }
@@ -63,6 +64,10 @@ export default class MultiSelectSortableFlatlist extends React.Component {
   SelectAll() {
     this.setState({ selectedItems: [...this.props.data] });
     return [...this.props.data];
+  }
+
+  SelectionOverwrite(SelectedItems) {
+    this.setState({ selectedItems: [...SelectedItems] });
   }
 
   GetIndexofItem(item) {

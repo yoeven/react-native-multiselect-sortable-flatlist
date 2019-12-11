@@ -1,6 +1,6 @@
 {
     "name": "react-native-multiselect-sortable-flatlist",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "A React Native FlatList that is sortable with the ability to select multiple list items",
     "main": "index.js",
     "scripts": {
