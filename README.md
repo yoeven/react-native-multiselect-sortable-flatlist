@@ -220,6 +220,7 @@ const styles = StyleSheet.create({
 | data | Exaxtly like react-native [FlatList data prop](https://facebook.github.io/react-native/docs/flatlist#data). An array of data to pass your rendered components. | None **(Required)** | Array |
 | renderItem | `renderItem={({ item: object, index: number, selected: bool }) => <YourComponent selected={selected} />}`. Similar to react-native [FlatList renderItem](https://facebook.github.io/react-native/docs/flatlist#renderitem), it provides both the item and index varables along with a new varable called `selected`, which allows you to provide [conditional rendering](https://reactjs.org/docs/conditional-rendering.html) as you see fit. | None **(Required)** | Func |
 | keyExtractor | Exaxtly like react-native [FlatList keyExtractor prop](https://facebook.github.io/react-native/docs/flatlist#keyextractor). Used to extract a unique key for a given item at the specified index. Also import to give unique key for selection to differentiate each item.| None **(Required)** | Func |
+| initialSelectedItems | An array of items that will be selected when component mounts. | None | Array |
 | onItemTap | `({ item: object, index: number })  =>  void` Called when the touch is released. | None | Func |
 | onItemSelected | `({ selectedItems: array, item: object, index: number })  =>  void` Called when items are selected. | None | Func |
 | onItemDeselected | `({ selectedItems: array, item: object, index: number })  =>  void` Called when items are deselected. | None | Func |
@@ -227,7 +228,6 @@ const styles = StyleSheet.create({
 | comparingFactor | If data prop is an array of JSON Objects, you can pass a JSON key that would use the value for uniquely differentiating each item instead of using the item index number. | None | String |
 | selectable | Enable or Disable all list items from being selected. | true | Bool |
 | sortable | Enable or Disable list sorting ability. | true | Bool |
-| initialSelectedItems | An array of items that will be selected when component mounts. | None | Array |
 | scrollPercent | Sets where scrolling begins. A value of `5` will scroll up if the finger is in the top 5% of the FlatList container and scroll down in the bottom 5%. | 5 | Number |
 | mode | Setting the mode to `"manual"` gives you full control on both sortability and selectability by exposing methods per item though the `renderItem` prop. When set to manual, the renderItem prop will look like this: `renderItem={({ item: object, index: number, selected: bool, drag: function, dragEnd: function, reverseSelection: function })`. Manual mode will ignore `selectable`, `sortable` and `onItemTap` props. | "auto" | String |
 
@@ -250,7 +250,7 @@ Use refs to call the functions on an instance of the component.
 |--|--|--|--|
 | SelectAll() | None |Selects all of the items in the list and returns an array. | Array |
 | DeselectAll() | None |Deselects all of the items in the list and returns an array. | Array |
-| SelectionOverwrite() | SelectedItems: array |Manually overwrite the current selection array with your own selection array with items passed to `data`. | Void |
+| SelectionOverwrite() | SelectedItems: array |Manually overwrite the current selection array with your own selection array with items passed to `data`. | Null |
 
 ## Running the example expo app
 
